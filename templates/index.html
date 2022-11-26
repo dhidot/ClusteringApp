@@ -19,54 +19,41 @@
           rel="stylesheet">
 
     <!-- myCSS -->
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 
 </head>
 <body>
 
-<nav class="navbar bg-dark">
-    <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1" style="color: aliceblue">Clustering App Using K-Means Algorithm</span>
-    </div>
-</nav>
-
 <div class="container mt-3">
-    <div class="card" style="background: linear-gradient(to bottom right, #cdb4db, #a2d2ff)">
-        <div class="card-header">
-            <h3 class="card-title text-center">Blood Transfution Classification</h3>
-        </div>
+    <div class="card">
         <div class="card-body">
             <div class="row">
+                <div class="col-md-6" id="image">
+                </div>
                 <div class="col-md-6">
+                    <h3>Blood Transfusion Clustering</h3>
                     <form action="{{ url_for('predict') }}" method="POST" name="myForm">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label"><h5>Recency</h5></label>
-                            <p>Jumlah bulan yang sudah berlalu semenjak donasi terakhir</p>
-                            <input type="number" name="recency" class="form-control">
+                            <input type="number" name="recency" class="form-control" placeholder="Jumlah bulan yang sudah berlalu semenjak donasi terakhir" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><h5>Frequency</h5></label>
-                            <p>Jumlah berapa kali melakukan donasi darah</p>
-                            <input type="number" name="frequency" class="form-control">
+                            <input type="number" name="frequency" class="form-control" placeholder="Jumlah berapa kali melakukan donasi darah" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label"><h5>Monetary</h5></label>
-                            <p>Total darah yang sudah di donasikan (dalam c.c / cm<sup>3</sup>)</p>
-                            <input type="number" name="monetary" class="form-control">
+                            <input type="number" name="monetary" class="form-control" placeholder="Total darah yang sudah di donasikan (dalam c.c)" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><h5>Time</h5></label>
-                            <p>Jumlah bulan sejak pertama kali melakukan donasi</p>
-                            <input type="number" name="time" class="form-control">
+                            <input type="number" name="time" class="form-control" placeholder="Jumlah bulan sejak pertama kali melakukan donasi" required>
                         </div>
-                        <button type="submit" class="btn btn-primary" onclick="">Prediksi</button>
+                        <button type="submit" class="btn btn-primary">Prediksi</button>
+                        <h4>
+                            {{ resultValue }}
+                        </h4>
                     </form>
-                </div>
-                <div class="col-md-6">
-                    <h3>Hasil Prediksi</h3>
-                    <p>
-                        {{ resultValue }}
-                    </p>
                 </div>
             </div>
         </div>

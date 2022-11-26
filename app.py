@@ -11,6 +11,7 @@ from scipy.spatial import distance
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -32,7 +33,7 @@ def predict():
         model = pickle.load(f)
 
     assignedCluster = []
-    distances = [] # list untuk menampung jarak antara nilai input dengan nilai yang ada di dataset
+    distances = []  # list untuk menampung jarak antara nilai input dengan nilai yang ada di dataset
 
     for i, this_segment in enumerate(model):
         dist = distance.cityblock(vals, this_segment)
@@ -40,8 +41,14 @@ def predict():
         indexMin = np.argmin(distances)
         assignedCluster.append(indexMin)
 
-    return render_template('index.html', resultValue=f'Data yang diinput termasuk kedalam cluster nomor {indexMin, assignedCluster}')
+    if (indexMin == 0):
+        result = 'cluster 1'
+    elif (indexMin == 1):
+        result = 'cluster 2'
+    else:
+        result = 'cluster 3'
 
+    return render_template('predict.html', resultValue=f'Data yang diinput termasuk kedalam {result}')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
