@@ -42,13 +42,13 @@ def predict():
         assignedCluster.append(indexMin)
 
     if (indexMin == 0):
-        result = 'cluster 1'
+        result = '1'
     elif (indexMin == 1):
-        result = 'cluster 2'
+        result = '2'
     else:
-        result = 'cluster 3'
+        result = '3'
 
-    return render_template('predict.html', resultValue=f'Data yang diinput termasuk kedalam {result}')
+    return render_template('predict.html', resultValue=f' {result}')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
