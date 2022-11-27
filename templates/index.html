@@ -32,27 +32,33 @@
                     <div id="img">
                         <!-- <img src="https://cdn-icons-png.flaticon.com/512/1056/1056542.png" alt="blood transfusion"> -->
                     </div>
-                    </div>
+                </div>
                 <div class="col-md-6">
                     <h3>Blood Transfusion Clustering</h3>
                     <form action="{{ url_for('predict') }}" method="POST" name="myForm">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label"><h5>Recency</h5></label>
-                            <input type="number" name="recency" class="form-control" placeholder="Jumlah bulan yang sudah berlalu semenjak donasi terakhir" required>
+                            <input type="number" name="recency" class="form-control"
+                                   placeholder="Jumlah bulan yang sudah berlalu semenjak donasi terakhir" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><h5>Frequency</h5></label>
-                            <input type="number" name="frequency" class="form-control" placeholder="Jumlah berapa kali melakukan donasi darah" required>
+                            <input type="number" name="frequency" class="form-control"
+                                   placeholder="Jumlah berapa kali melakukan donasi darah" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label"><h5>Monetary</h5></label>
-                            <input type="number" name="monetary" class="form-control" placeholder="Total darah yang sudah di donasikan (dalam c.c)" required>
+                            <input type="number" name="monetary" class="form-control"
+                                   placeholder="Total darah yang sudah di donasikan (dalam c.c)" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label"><h5>Time</h5></label>
-                            <input type="number" name="time" class="form-control" placeholder="Jumlah bulan sejak pertama kali melakukan donasi" required>
+                            <input type="number" name="time" class="form-control"
+                                   placeholder="Jumlah bulan sejak pertama kali melakukan donasi" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Prediksi</button>
+                        <div id="prediction" class="text-center">
+                            <button type="submit" class="btn btn-primary">Prediksi</button>
+                        </div>
                         <h4>
                             {{ resultValue }}
                         </h4>

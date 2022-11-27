@@ -25,17 +25,17 @@
 <body>
 
 <div class="container mt-3">
-    <div class="card" style="height: 800px;">
+    <div class="card" style="height: 400px;">
         <div class="hasildata">
             <!-- <button class="btn text-center">{{ resultValue }}</button> -->Data yang diinput termasuk kedalam cluster<br>
             <div class="resvalue">
                 {{ resultValue }}
             </div>
-            
         </div>
-        <!-- <div class="hasildata" id="img2">
-
-        </div> -->
+        <!-- back to index put it on center-->
+        <div class="backtoindex text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Index</a>
+        </div>
     </div>
 </div>
 

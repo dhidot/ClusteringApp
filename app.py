@@ -28,15 +28,17 @@ def predict():
         for key, value in inputValues.items():
             vals.append(int(value))
 
+    useValue = [vals[0], vals[2]]
+
     # Lakukan prediksi
-    with open('centroids.pkl', 'rb') as f:
+    with open('mysite/centroids.pkl', 'rb') as f:
         model = pickle.load(f)
 
     assignedCluster = []
     distances = []  # list untuk menampung jarak antara nilai input dengan nilai yang ada di dataset
 
     for i, this_segment in enumerate(model):
-        dist = distance.cityblock(vals, this_segment)
+        dist = distance.cityblock(useValue, this_segment)
         distances.append(dist)
         indexMin = np.argmin(distances)
         assignedCluster.append(indexMin)
@@ -45,10 +47,13 @@ def predict():
         result = '1'
     elif (indexMin == 1):
         result = '2'
-    else:
+    elif (indexMin == 2):
         result = '3'
+    else:
+        result = '4'
 
     return render_template('predict.html', resultValue=f' {result}')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
