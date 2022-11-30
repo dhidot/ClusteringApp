@@ -7,6 +7,8 @@ from flask import (
 )
 import pickle
 import numpy as np
+from sklearn.preprocessing import normalize
+
 from scipy.spatial import distance
 
 app = Flask(__name__)
@@ -28,10 +30,11 @@ def predict():
         for key, value in inputValues.items():
             vals.append(int(value))
 
-    useValue = [vals[0], vals[2]]
+
+    useValue = [vals[0], vals[1], vals[2]]
 
     # Lakukan prediksi
-    with open('mysite/centroids.pkl', 'rb') as f:
+    with open('centroids.pkl', 'rb') as f:
         model = pickle.load(f)
 
     assignedCluster = []
