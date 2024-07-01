@@ -7,9 +7,6 @@
 
 ## Description
 Dataset yang digunakan pada project ini dapat diakses https://archive.ics.uci.edu/ml/machine-learning-databases/blood-transfusion/transfusion.data
-Project ini akan melakukan clustering menggunakan ### Algoritma Kmeans berdasarkan 4 atribut berikut : 
-1. Recency
-2. Monetary
 
 ## How to run
 1. Install flask on the project 
